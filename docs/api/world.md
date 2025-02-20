@@ -442,6 +442,10 @@ print(world.has(entity));
 
 :::
 
+## cleanup
+
+Placeholder
+
 ## clear
 
 Clears all of the components and relationships of the entity without deleting it.
