@@ -16,6 +16,12 @@ jecs.Wildcard: Entity
 ```
 Builtin component type. This ID is used for wildcard queries.
 
+## w
+```luau
+jecs.w: Entity
+```
+Alias of Wildcard.
+
 ## Component
 ```luau
 jecs.Component: Entity
@@ -32,6 +38,54 @@ Builtin component type. This ID is for creating parent-child hierarchies.
 ```luau
 jecs.Rest: Entity
 ```
+
+## OnAdd
+```luau
+jecs.OnAdd : Entity
+```
+Placeholder: 
+
+## OnRemove
+```luau
+jecs.OnRemove : Entity
+```
+Placeholder: 
+
+## OnSet
+```luau
+jecs.OnSet : Entity
+```
+Placeholder: 
+
+## OnDelete
+```luau
+jecs.OnDelete : Entity
+```
+Placeholder: 
+
+## OnDeleteTarget
+```luau
+jecs.OnDeleteTarget : Entity
+```
+Placeholder: 
+
+## Delete
+```luau
+jecs.Delete : Entity
+```
+Placeholder: 
+
+## Remove
+```luau
+jecs.Remove : Entity
+```
+Placeholder: 
+
+## Name
+```luau
+jecs.Name : Entity
+```
+Placeholder: 
 
 # Functions
 
