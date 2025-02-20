@@ -86,45 +86,46 @@ end
 
 
 ```ts [Typescript]
-import { Wildcard, pair, World } from "@rbxts/jecs"
+import { Entity, pair, Wildcard, World } from "@rbxts/jecs";
 
+const world = new World();
+const Name = world.component<string>();
 
-const world = new World()
-const Name = world.component()
-function getName(e) {
-  return world.get(e, Name)
+function getName(e: Entity) {
+	return world.get(e, Name);
 }
 
-const Eats = world.component()
+const Eats = world.component<number>();
 
 // Relationship objects
-const Apples = world.component()
-// components are entities, so you can add components to components
-world.set(Apples, Name, "apples")
-const Oranges = world.component()
-world.set(Oranges, Name, "oranges")
+const Apples = world.component();
+const Oranges = world.component();
 
-const bob = world.entity()
+// Components are entities, so you can add components to components
+world.set(Apples, Name, "Apples");
+world.set(Oranges, Name, "Oranges");
+
+const bob = world.entity();
+
 // Pairs can be constructed from two entities
+world.set(bob, pair(Eats, Apples), 10);
+world.set(bob, pair(Eats, Oranges), 5);
+world.set(bob, Name, "Bob");
 
-world.set(bob, pair(Eats, Apples), 10)
-world.set(bob, pair(Eats, Oranges), 5)
-world.set(bob, Name, "bob")
-
-const alice = world.entity()
-world.set(alice, pair(Eats, Apples), 4)
-world.set(alice, Name, "alice")
+const alice = world.entity();
+world.set(alice, pair(Eats, Apples), 4);
+world.set(alice, Name, "Alice");
 
 for (const [id, amount] of world.query(pair(Eats, Wildcard))) {
-  // get the second target of the pair
-  const food = world:target(id, Eats)
-  print(string.format("%s eats %d %s", getName(id), amount, getName(food)))
+	// Get the second target of the pair
+	const food = world.target(id, Eats);
+	if (food === undefined) continue;
+	print(`${getName(id)} eats ${amount} ${getName(food)}`);
 }
 
 // Output:
-//   bob eats 10 apples
-//   bob eats 5 pears
-//   alice eats 4 apples   
-
+// Bob eats 10 Apples
+// Bob eats 5 Oranges
+// Alice eats 4 Apples
 ```
 
