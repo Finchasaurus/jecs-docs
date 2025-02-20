@@ -2,7 +2,7 @@
 
 A World contains entities which have components. The World is queryable and can be used to get entities with a specific set of components and to perform different kinds of operations on them.
 
-# Functions
+# Constructors
 
 ## new
 
