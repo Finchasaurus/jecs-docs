@@ -8,7 +8,7 @@ export default defineConfig({
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
         nav: [
-            { text: 'Learn', link: '/' },
+            { text: 'Learn', link: '/learn/overview/get-started' },
             { text: 'API', link: '/api/jecs.md' },
             { text: 'Examples', link: 'https://github.com/Ukendio/jecs/tree/main/examples' },
         ],
